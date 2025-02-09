@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleApplication {
-    private static InventoryManager inventoryManager = new InventoryManager();
-    private static Scanner scanner = new Scanner(System.in);
+    private static final InventoryManager inventoryManager = new InventoryManager();
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 
