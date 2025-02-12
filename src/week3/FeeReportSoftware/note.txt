@@ -1,0 +1,75 @@
+1. Admin Functionalities
+creation:
+CREATE TABLE admin (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+1.	Manage Accountants
+
+o	Add new accountants.
+INSERT INTO accountant (name, email, phone, password) VALUES (?,?,?,?);
+
+o	View existing accountants.
+SELECT * FROM accountant;
+
+o	Edit accountant details.
+UPDATE accountant
+SET name = ?, email = ?, phone = ?(input)  WHERE id = ?;
+
+o	Delete accountants.
+DELETE FROM accountant WHERE id = 1;
+
+2.	Logout
+o	Redirects to the login page.
+
+
+
+2. Accountant Functionalities
+
+accountant db :
+CREATE TABLE accountant (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    phone VARCHAR(15) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+
+student db creation:
+CREATE TABLE student (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    course VARCHAR(100) NOT NULL,
+    fee DOUBLE NOT NULL,
+    paid DOUBLE NOT NULL,
+    due DOUBLE NOT NULL,
+    address TEXT NOT NULL,
+    phone VARCHAR(15) NOT NULL
+);
+
+1.	Manage Students
+o	Add new students.
+INSERT INTO student (name, email, course, fee, paid, due, address, phone)
+VALUES ('Alice Smith', 'alice@example.com', 'Computer Science', 50000, 20000, 30000, '123 Main St', '9998887776');
+
+o	View student records.
+SELECT * FROM student;
+
+o	Edit student details.
+UPDATE student
+SET name = 'Alice Updated', course = 'Data Science', fee = 60000, paid = 25000, due = 35000
+WHERE id = 1;
+
+o	Delete student records.
+DELETE FROM student WHERE id = 1;
+
+2.	Check Due Fee
+o	View students with pending fee payments.
+SELECT * FROM student WHERE due > 0;
+
+3.	Logout
+o	Redirects to the login page.
