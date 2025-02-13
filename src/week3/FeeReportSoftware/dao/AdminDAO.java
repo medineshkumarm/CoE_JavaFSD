@@ -40,13 +40,13 @@ public class AdminDAO {
     //view existing accountants
     public List<Accountant> viewAllAccountant() {
         List<Accountant> data = new ArrayList<>();
-        String query = "SELECT * FROM student;";
+        String query = "SELECT * FROM accountant;";
         try {
             Connection conn = DbConnection.getConnection();
             PreparedStatement ps = conn.prepareStatement(query);
 
             ResultSet res = ps.executeQuery();
-            if (res.next()) {
+            while (res.next()) {
                 //name,email,ph,password
                 data.add(
                         new Accountant(
@@ -56,10 +56,10 @@ public class AdminDAO {
                         res.getString("phone"),
                         res.getString("password")
                 ));
-
-                return data;
-
             }
+            
+            return data;
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
