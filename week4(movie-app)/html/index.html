@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Review App</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <nav>
+      <h1>Movie Review App</h1>
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search movies..." />
+        <button onclick="searchMovies()">Search</button>
+      </div>
+      <div>
+        <button onclick="showSection('home')">Home</button>
+        <button onclick="showSection('reviews')">Reviews</button>
+      </div>
+    </nav>
+
+    <div class="main-content">
+      <div id="home">
+        <h2>Trending Movies</h2>
+        <div class="movies-grid" id="trendingMovies"></div>
+      </div>
+
+      <div id="movieDetails" style="display: none">
+        <div class="movie-details">
+          <h2 id="movieTitle"></h2>
+          <img id="moviePoster" src="" alt="" style="max-width: 300px" />
+          <p id="movieYear"></p>
+          <p id="movieRating"></p>
+          <p id="moviePlot"></p>
+
+          <div class="review-form">
+            <h3>Submit Review</h3>
+            <form id="reviewForm">
+              <input type="hidden" id="movieId" />
+              <div class="form-group">
+                <label>Rating (1-10):</label>
+                <input type="number" id="rating" min="1" max="10" required />
+              </div>
+              <div class="form-group">
+                <label>Name:</label>
+                <input type="text" id="reviewerName" required />
+              </div>
+              <div class="form-group">
+                <label>Comment:</label>
+                <textarea id="reviewComment" required></textarea>
+              </div>
+              <button type="submit">Submit Review</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div id="reviews" style="display: none">
+        <h2>All Reviews</h2>
+        <div class="reviews-list" id="allReviews"></div>
+      </div>
+    </div>
+    <script src="../js/script.js" defer></script>
+  </body>
+</html>
